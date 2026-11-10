@@ -1,0 +1,123 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Secourismo</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="logo.svg"><meta name="theme-color" content="#e63946">
+<style>
+:root{--bg:#f6f7fb;--c:#fff;--t:#1d2433;--m:#6b7385;--p:#e63946;--p2:#ff7a59;--g:#2fbf71;--b:#e4e7ee}
+[data-th=dark]{--bg:#0f1420;--c:#1a2132;--t:#eef1f7;--m:#9aa3b8;--b:#2a3247}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font:16px system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--t);padding-bottom:90px;transition:background .3s}
+.w{max-width:560px;margin:auto;padding:16px}.m{color:var(--m)}h1{font-size:2rem;line-height:1.15}h2{margin:12px 0}
+.top{position:sticky;top:0;z-index:5;background:var(--c);border-bottom:1px solid var(--b);display:flex;justify-content:space-between;padding:12px 16px;font-weight:700}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:14px;font:700 1rem inherit;color:#fff;background:linear-gradient(135deg,var(--p2),var(--p));box-shadow:0 4px 0 #b32431;cursor:pointer;text-align:center;text-decoration:none;margin:10px 0}
+.btn:active{transform:translateY(3px);box-shadow:none}.btn:disabled{background:var(--b);box-shadow:none;color:var(--m)}.btn.g{background:var(--g);box-shadow:0 4px 0 #1f8a51}
+.card{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:16px;margin:12px 0}
+.hero{background:linear-gradient(135deg,var(--p2),var(--p));color:#fff;padding:48px 20px 40px;border-radius:0 0 32px 32px;text-align:center}
+.hero img{width:84px;border-radius:22px;margin-bottom:14px}.hero .btn{background:#fff;color:var(--p);box-shadow:0 4px 0 #ffd0cc;max-width:300px;margin:14px auto}
+.in,select,textarea{width:100%;padding:13px;border-radius:14px;border:2px solid var(--b);background:var(--c);color:var(--t);font:inherit;margin:5px 0}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:10px}.feat div{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:14px;font-size:.9rem}.feat b{display:block;font-size:1.6rem}
+.path{display:flex;flex-direction:column;align-items:center;gap:22px;padding:20px 0}
+.node{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--t);font-size:.8rem;font-weight:600;max-width:140px;text-align:center}
+.node b{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;color:#fff;background:var(--p);box-shadow:0 6px 0 #b32431;margin-bottom:8px}
+.node.done b{background:var(--g);box-shadow:0 6px 0 #1f8a51}.node.lock b{background:var(--b);box-shadow:0 6px 0 var(--m);color:var(--m)}
+.nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:var(--c);border-top:1px solid var(--b);padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+.nav a{text-decoration:none;color:var(--m);font-size:.75rem;text-align:center;padding:4px 14px;border-radius:12px}.nav a.on{color:var(--p);background:rgba(230,57,70,.1)}.nav i{display:block;font-style:normal;font-size:1.4rem}
+.bar{height:12px;background:var(--b);border-radius:9px;overflow:hidden;margin:10px 0}.bar div{height:100%;background:var(--g);transition:width .4s}
+.opt,.chip{display:block;width:100%;text-align:left;padding:14px;margin:8px 0;border-radius:14px;border:2px solid var(--b);background:var(--c);color:var(--t);font:inherit;cursor:pointer;transition:.15s}
+.chip{display:inline-block;width:auto;margin:4px}.on{border-color:var(--p2);background:rgba(255,122,89,.12)}
+.ans{min-height:56px;border-bottom:2px dashed var(--b);margin-bottom:10px}
+.fb{position:fixed;bottom:0;left:0;right:0;padding:16px 16px calc(16px + env(safe-area-inset-bottom));background:var(--c);border-top:1px solid var(--b)}.fb.ok{background:#d7f5e4;color:#145c36}.fb.ko{background:#fde0e0;color:#8a1b25}
+.fb div{max-width:560px;margin:auto}.fb button.btn{margin-bottom:0}.rep{background:none;border:0;color:inherit;text-decoration:underline;font-size:.8rem;cursor:pointer}
+.bd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;font-size:.75rem}.bd div{padding:10px;border-radius:14px;background:var(--bg)}.bd b{font-size:2rem;display:block}.bd .off{opacity:.25;filter:grayscale(1)}
+.tabs{display:flex;gap:6px;overflow-x:auto}.tabs button{flex:none;padding:8px 14px;border-radius:20px;border:1px solid var(--b);background:var(--c);color:var(--t);cursor:pointer}.tabs .on{background:var(--p);color:#fff}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center}.sm{padding:6px 10px;border-radius:10px;border:1px solid var(--b);background:var(--c);color:var(--t);cursor:pointer}
+.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--t);color:var(--bg);padding:10px 18px;border-radius:20px;z-index:9}
+.fin{text-align:center;padding:40px 0}.fin .big{font-size:4rem}
+</style></head><body><div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-app-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-auth-compat.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.12.2/firebase-firestore-compat.min.js"></script>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyA-Xk_1oD4D8aZKE6cFZyxTYl5p69hMfrk",authDomain:"secourismo.firebaseapp.com",projectId:"secourismo",storageBucket:"secourismo.firebasestorage.app",messagingSenderId:"949593384130",appId:"1:949593384130:web:800da6c06ff2f7b918c75b"});
+const auth=firebase.auth(),db=firebase.firestore();
+// ===== MAIL : renseigner l'URL de ton futur petit serveur =====
+const MAIL_ENDPOINT='';
+async function sendWelcomeMail(u,n){if(!MAIL_ENDPOINT)return;try{await fetch(MAIL_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:u.email,name:n.name})})}catch(x){}}
+const A=document.getElementById('app');
+const e=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+const today=()=>new Date().toISOString().slice(0,10);
+let U=null,P=null,QS=[],L=null,MODE='login',TAB='contacts';
+const T=(a,b)=>P&&P.tu===false?b:a;
+const setTheme=d=>document.documentElement.dataset.th=d?'dark':'light';
+setTheme(localStorage.dark==='1');
+const toast=m=>{const d=document.createElement('div');d.className='toast';d.textContent=m;document.body.append(d);setTimeout(()=>d.remove(),2500)};
+const BADGES=[{id:'first',n:'Premiers pas',i:'🩹',f:p=>Object.keys(p.done).length>=1},{id:'s3',n:'Série de 3 jours',i:'🔥',f:p=>p.streak>=3},{id:'s7',n:'Série de 7 jours',i:'🚀',f:p=>p.streak>=7},{id:'x100',n:'100 XP',i:'⭐',f:p=>p.xp>=100},{id:'x500',n:'500 XP',i:'🏆',f:p=>p.xp>=500},{id:'perf',n:'Sans faute',i:'🎯',f:(p,f)=>f}];
+const TYPES={qcm:'QCM (1 réponse)',multi:'Choix multiples',vf:'Vrai / Faux',order:'Remettre dans l\'ordre',text:'Réponse courte'};
+
+auth.onAuthStateChanged(async u=>{U=u;P=null;
+ if(u){const r=db.doc('users/'+u.uid);let s=await r.get();
+  if(!s.exists){const n=JSON.parse(sessionStorage.nu||'{}');await r.set({name:n.name||u.email.split('@')[0],email:u.email,level:n.level||'PSE1',tu:n.tu!==false,dark:false,xp:0,streak:0,last:'',done:{},badges:[],isAdmin:false,created:Date.now()});s=await r.get();sendWelcomeMail(u,n)}
+  P={id:u.uid,...s.data()};setTheme(P.dark);localStorage.dark=P.dark?1:0;
+  QS=(await db.collection('questions').get()).docs.map(d=>({id:d.id,...d.data()}));}
+ route()});
+window.onhashchange=route;
+function route(){if(!U&&auth.currentUser===null&&!window.rdy){window.rdy=1}
+ const h=location.hash.slice(2).split('/'),v=h[0];
+ if(!U)return v==='auth'?authV():v==='contact'?pub(contactForm()):landing();
+ const f={'':home,play:()=>play(h[1]),profile,admin,contact:()=>shell(contactForm(),'')}[v]||home;f()}
+function shell(c,tab){A.innerHTML=`<div class=top><span>🔥 ${P.streak}</span><span>⭐ ${P.xp} XP</span><span>${P.level}</span></div><div class=w>${c}</div><nav class=nav><a href="#/" class="${tab==='home'?'on':''}"><i>📚</i>${T('Apprendre','Apprendre')}</a><a href="#/profile" class="${tab==='profile'?'on':''}"><i>👤</i>Profil</a><a href="#/contact"><i>✉️</i>Contact</a>${P.isAdmin?`<a href="#/admin" class="${tab==='admin'?'on':''}"><i>⚙️</i>Admin</a>`:''}</nav>`}
+function pub(c){A.innerHTML=`<div class=w><a href="#/" class=m>← Accueil</a>${c}</div>`}
+// ===== Public =====
+function contactForm(){return`<div class=card id=cf><h2>Nous contacter</h2><input class=in id=cn placeholder="Nom" value="${e(P?.name||'')}"><input class=in id=ce type=email placeholder="E-mail" value="${e(U?.email||'')}"><textarea class=in id=cm rows=4 placeholder="Votre message"></textarea><button class=btn onclick="sendContact()">Envoyer</button></div>`}
+window.sendContact=async()=>{const m=cm.value.trim(),em=ce.value.trim();if(!m||!em)return toast('Remplis tous les champs');await db.collection('contacts').add({name:cn.value,email:em,msg:m,t:Date.now()});cf.innerHTML='<h2>Merci ! ✅</h2><p class=m>Nous revenons vers vous vite.</p>'};
+function landing(){A.innerHTML=`<div class=hero><img src=logo.svg alt=""><h1>Apprends les gestes qui sauvent</h1><p>Le secourisme, version jeu. PSE1 et PSE2, quelques minutes par jour.</p><a class=btn href="#/auth">Commencer gratuitement</a></div><div class=w><div class=feat><div><b>🎮</b>Parcours à paliers, comme un jeu</div><div><b>🔥</b>Séries quotidiennes</div><div><b>🏅</b>Badges et récompenses</div><div><b>🧠</b>Questions variées : QCM, ordre, vrai/faux…</div></div>${contactForm()}</div>`}
+function authV(){const s=MODE==='signup';pub(`<h1 style="margin:16px 0">${s?'Créer un compte':'Connexion'}</h1><div class=card>${s?`<input class=in id=an placeholder="Prénom"><select id=al><option>PSE1</option><option>PSE2</option></select><select id=at><option value=1>Tutoiement</option><option value=0>Vouvoiement</option></select>`:''}<input class=in id=ae type=email placeholder="E-mail"><input class=in id=ap type=password placeholder="Mot de passe (6 car. min)"><button class=btn onclick="doAuth()">${s?'S\'inscrire':'Se connecter'}</button><p class=m style="text-align:center" onclick="MODE='${s?'login':'signup'}';authV()"><u>${s?'J\'ai déjà un compte':'Pas de compte ? Créer'}</u></p></div>`)}
+window.doAuth=async()=>{try{if(MODE==='signup'){sessionStorage.nu=JSON.stringify({name:an.value,level:al.value,tu:at.value==='1'});await auth.createUserWithEmailAndPassword(ae.value,ap.value)}else await auth.signInWithEmailAndPassword(ae.value,ap.value);location.hash='#/'}catch(x){toast('Erreur : '+x.code)}};
+// ===== Parcours =====
+function themes(){const m=[];QS.filter(q=>q.level===P.level).forEach(q=>m.includes(q.theme)||m.push(q.theme));return m}
+function home(){let ok=true;const th=themes();
+ shell(`<h2>${T('Ton','Votre')} parcours ${P.level}</h2>`+(th.length?`<div class=path>${th.map((t,i)=>{const d=P.done[P.level+'|'+t],lock=!ok,c=d?'done':lock?'lock':'';if(!d)ok=false;return`<a class="node ${c}" style="margin-left:${[0,50,80,50,0,-50,-80,-50][i%8]}px" ${lock?'':`href="#/play/${encodeURIComponent(t)}"`}><b>${d?'✓':lock?'🔒':i+1}</b>${e(t)}</a>`}).join('')}</div>`:`<p class=m>Aucune question pour ce niveau pour l'instant.</p>`),'home')}
+function play(t){t=decodeURIComponent(t);const qs=shuf(QS.filter(q=>q.level===P.level&&q.theme===t)).slice(0,8);if(!qs.length)return location.hash='#/';L={t,qs,i:0,h:5,ok:0};ask()}
+function ask(){const x=L.qs[L.i];if(!x)return fin();L.sel=['multi','order'].includes(x.type)?[]:null;L.chk=false;L.sh=x.type==='order'?shuf(x.options):null;draw()}
+function draw(){const x=L.qs[L.i];let b='';
+ if(x.type==='qcm'||x.type==='multi')b=x.options.map((o,i)=>`<button class="opt ${(Array.isArray(L.sel)?L.sel.includes(i):L.sel===i)?'on':''}" onclick="pick(${i})">${e(o)}</button>`).join('');
+ else if(x.type==='vf')b=['Vrai','Faux'].map((o,i)=>`<button class="opt ${L.sel===(i===0)?'on':''}" onclick="pick(${i===0})">${o}</button>`).join('');
+ else if(x.type==='order')b=`<p class=m>${T('Touche','Touchez')} les étapes dans le bon ordre</p><div class=ans>${L.sel.map((s,i)=>`<button class="chip on" onclick="unpick(${i})">${e(s)}</button>`).join('')}</div>`+L.sh.filter(s=>!L.sel.includes(s)).map(s=>`<button class=chip data-s="${e(s)}" onclick="pickO(this.dataset.s)">${e(s)}</button>`).join('');
+ else b=`<input id=tx class=in placeholder="${T('Ta','Votre')} réponse" value="${e(L.sel||'')}" oninput="L.sel=this.value" ${L.chk?'disabled':''}>`;
+ const empty=L.sel===null||L.sel===''||(x.type==='order'?L.sel.length<x.options.length:Array.isArray(L.sel)&&!L.sel.length);
+ let f;if(!L.chk)f=`<div class=fb><div><button class=btn ${empty?'disabled':''} onclick="check()">Vérifier</button></div></div>`;
+ else f=`<div class="fb ${L.good?'ok':'ko'}"><div><b>${L.good?'✅ Bravo !':'❌ Raté'}</b><p>${e(x.explain||'')}</p>${!L.good&&['text','order'].includes(x.type)?`<p><i>Réponse : ${e(x.type==='order'?x.options.join(' → '):x.answer)}</i></p>`:''}<button class=rep onclick="report()">⚑ Signaler cette question</button><button class="btn ${L.good?'g':''}" onclick="next()">Continuer</button></div></div>`;
+ A.innerHTML=`<div class=w><div class=row><a href="#/" class=m>✕</a><div class=bar style="flex:1"><div style="width:${L.i/L.qs.length*100}%"></div></div><b>❤️ ${L.h}</b></div><h2 style="margin:20px 0">${e(x.q)}</h2>${b}</div>${f}`}
+window.pick=v=>{if(L.chk)return;const x=L.qs[L.i];if(x.type==='multi'){const i=L.sel.indexOf(v);i<0?L.sel.push(v):L.sel.splice(i,1)}else L.sel=v;draw()};
+window.pickO=s=>{if(!L.chk){L.sel.push(s);draw()}};window.unpick=i=>{if(!L.chk){L.sel.splice(i,1);draw()}};
+function good(x){const s=L.sel;switch(x.type){case'qcm':return s===+x.answer;case'multi':return[...s].sort().join()===[].concat(x.answer).map(Number).sort().join();case'vf':return s===(x.answer===true||norm(x.answer)==='vrai');case'order':return s.join('|')===x.options.join('|');default:return norm(s||'')===norm(x.answer)}}
+window.check=()=>{L.chk=true;L.good=good(L.qs[L.i]);L.good?L.ok++:L.h--;draw()};
+window.next=()=>{if(L.h<=0)return fin(true);L.i++;ask()};
+window.report=async()=>{const x=L.qs[L.i],m=prompt('Quel est le problème avec cette question ?');if(m){await db.collection('reports').add({qid:x.id,q:x.q,msg:m,uid:U.uid,email:U.email,t:Date.now()});toast('Merci, signalement envoyé')}};
+async function fin(dead){const n=L.qs.length,perf=!dead&&L.ok===n,xp=L.ok*10+(perf?10:0),k=P.level+'|'+L.t,d=today(),y=new Date(Date.now()-864e5).toISOString().slice(0,10);
+ const st=P.last===d?P.streak:P.last===y?P.streak+1:1,np={...P,xp:P.xp+xp,streak:st,last:d,done:{...P.done}};
+ const win=!dead&&L.ok/n>=.6;if(win)np.done[k]=Math.max(np.done[k]||0,L.ok);
+ const nb=BADGES.filter(b=>!P.badges.includes(b.id)&&b.f(np,perf));np.badges=[...P.badges,...nb.map(b=>b.id)];
+ await db.doc('users/'+U.uid).update({xp:np.xp,streak:st,last:d,done:np.done,badges:np.badges});P=np;
+ shell(`<div class=fin><div class=big>${dead?'💔':perf?'🏆':win?'🎉':'💪'}</div><h1>${dead?'Plus de cœurs':win?'Palier validé !':'Presque !'}</h1><p class=m>${L.ok}/${n} bonnes réponses</p><h2>+${xp} XP</h2>${nb.map(b=>`<div class=card>${b.i} Nouveau badge : <b>${b.n}</b></div>`).join('')}<a class=btn href="#/">Continuer</a></div>`,'home')}
+// ===== Profil =====
+function profile(){shell(`<h2>${e(P.name)}</h2><div class=card><div class=row><span>Niveau</span><select id=pl style="width:auto" onchange="sv({level:this.value})"><option ${P.level==='PSE1'?'selected':''}>PSE1</option><option ${P.level==='PSE2'?'selected':''}>PSE2</option></select></div><div class=row><span>Je veux être</span><select style="width:auto" onchange="sv({tu:this.value==='1'})"><option value=1 ${P.tu!==false?'selected':''}>tutoyé</option><option value=0 ${P.tu===false?'selected':''}>vouvoyé</option></select></div><div class=row><span>Mode sombre</span><input type=checkbox ${P.dark?'checked':''} onchange="sv({dark:this.checked});setTheme(this.checked);localStorage.dark=this.checked?1:0"></div></div><div class=card><h3 style="margin-bottom:10px">Badges</h3><div class=bd>${BADGES.map(b=>`<div class="${P.badges.includes(b.id)?'':'off'}"><b>${b.i}</b>${b.n}</div>`).join('')}</div></div><button class=btn onclick="auth.signOut();location.hash='#/'">Se déconnecter</button>`,'profile')}
+window.sv=async o=>{Object.assign(P,o);await db.doc('users/'+U.uid).update(o);if('level' in o||'tu' in o)profile()};
+// ===== Admin =====
+async function admin(){if(!P.isAdmin)return location.hash='#/';shell('<p class=m>Chargement…</p>','admin');
+ const col={contacts:'Messages',reports:'Signalements',users:'Comptes',questions:'Questions'};
+ const snap=await db.collection(TAB).get(),ds=snap.docs.map(d=>({id:d.id,...d.data()}));let h='';
+ if(TAB==='contacts')h=ds.map(d=>`<div class=card><b>${e(d.name)}</b> <span class=m>${e(d.email)}</span><p>${e(d.msg)}</p><button class=sm onclick="del('contacts','${d.id}')">Supprimer</button></div>`).join('');
+ if(TAB==='reports')h=ds.map(d=>`<div class=card><b>${e(d.q)}</b><p>⚑ ${e(d.msg)}</p><span class=m>${e(d.email)}</span><br><button class=sm onclick="del('reports','${d.id}')">Résolu</button></div>`).join('');
+ if(TAB==='users')h=ds.map(d=>`<div class=card><div class=row><div><b>${e(d.name)}</b> ${d.isAdmin?'🛡️':''}<br><span class=m>${e(d.email)} · ${d.level} · ${d.xp} XP</span></div></div><button class=sm onclick="adm('${d.id}',${!d.isAdmin})">${d.isAdmin?'Retirer admin':'Rendre admin'}</button> <button class=sm onclick="del('users','${d.id}')">Supprimer</button></div>`).join('');
+ if(TAB==='questions')h=`<div class=card><h3>Nouvelle question</h3><select id=qt>${Object.entries(TYPES).map(([k,v])=>`<option value=${k}>${v}</option>`).join('')}</select><select id=ql><option>PSE1</option><option>PSE2</option></select><input class=in id=qh placeholder="Thème (ex. Hémorragies)"><textarea class=in id=qq rows=2 placeholder="Question"></textarea><textarea class=in id=qo rows=4 placeholder="Options, une par ligne (pour 'ordre' : dans le BON ordre)"></textarea><input class=in id=qa placeholder="Bonne réponse : n° (0 = 1re option), ex. 0,2 pour multiple, vrai/faux, ou texte"><textarea class=in id=qe rows=2 placeholder="Explication"></textarea><button class=btn onclick="addQ()">Ajouter</button><button class="sm" onclick="seed()">+ Ajouter 4 exemples</button></div>`+ds.map(d=>`<div class=card><span class=m>${d.type} · ${d.level} · ${e(d.theme)}</span><p>${e(d.q)}</p><button class=sm onclick="del('questions','${d.id}')">Supprimer</button></div>`).join('');
+ shell(`<h2>Administration</h2><div class=tabs>${Object.entries(col).map(([k,v])=>`<button class="${k===TAB?'on':''}" onclick="TAB='${k}';admin()">${v}</button>`).join('')}</div>${h||'<p class=m>Rien ici.</p>'}`,'admin')}
+window.del=async(c,id)=>{if(confirm('Confirmer ?')){await db.doc(c+'/'+id).delete();if(c==='questions')QS=QS.filter(q=>q.id!==id);admin()}};
+window.adm=async(id,v)=>{await db.doc('users/'+id).update({isAdmin:v});admin()};
+window.addQ=async()=>{const t=qt.value,o=qo.value.split('\n').map(s=>s.trim()).filter(Boolean);let a=qa.value.trim();
+ if(t==='qcm')a=+a;else if(t==='multi')a=a.split(',').map(Number);else if(t==='vf')a=norm(a)==='vrai';
+ const d={type:t,level:ql.value,theme:qh.value.trim(),q:qq.value.trim(),options:o,answer:a,explain:qe.value.trim()};
+ if(!d.q||!d.theme)return toast('Thème et question requis');const r=await db.collection('questions').add(d);QS.push({id:r.id,...d});admin()};
+window.seed=async()=>{const s=[{type:'qcm',level:'PSE1',theme:'Hémorragies',q:'Que faire en premier face à un saignement abondant ?',options:['Appuyer directement sur la plaie','Faire un garrot','Rincer la plaie'],answer:0,explain:'La compression directe est le premier geste.'},{type:'vf',level:'PSE1',theme:'Hémorragies',q:'Une compression doit durer jusqu\'à l\'arrivée des secours.',options:[],answer:true,explain:'On ne relâche pas la compression.'},{type:'order',level:'PSE1',theme:'Alerte',q:'Remets dans l\'ordre les étapes d\'une alerte.',options:['Se présenter','Localiser l\'accident','Décrire la victime','Suivre les consignes'],answer:'',explain:''},{type:'multi',level:'PSE1',theme:'Arrêt cardiaque',q:'Quels signes montrent un arrêt cardiaque ?',options:['Inconscient','Ne respire pas','Parle normalement'],answer:[0,1],explain:'Inconscience + absence de respiration.'}];
+ for(const d of s){const r=await db.collection('questions').add(d);QS.push({id:r.id,...d})}admin()};
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script></body></html>
