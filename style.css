@@ -70,3 +70,4 @@ h1{font-size:1.9rem;line-height:1.15;font-weight:900;letter-spacing:-.02em}h2{fo
 @keyframes fxu{from{opacity:1;transform:translate(-50%,0) scale(.6)}to{opacity:0;transform:translate(-50%,-90px) scale(1.4)}}
 .pill{padding:6px 11px}.ctx{background:rgba(255,138,92,.12);border-color:var(--p2);margin:8px 0}.ctx p{margin-top:4px;font-weight:700}.sm:disabled{opacity:.4}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+.scn{text-decoration:none;color:inherit;cursor:pointer}.scn.lk{opacity:.55;filter:grayscale(.6)}
